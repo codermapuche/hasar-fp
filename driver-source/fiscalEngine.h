@@ -1,0 +1,1 @@
+void runFiscalCommand(FisCommand command);
