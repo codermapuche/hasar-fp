@@ -1,7 +1,7 @@
 # hasar-fp
 #### Driver para impresoras fiscales Hasar en Node.js y C++
 
-Driver podemos manipular impresoras fiscales marca Hasar de una forma super practica.
+Con este driver podemos manipular impresoras fiscales marca Hasar de una forma super practica.
 
 ### Features
 * Promise based
@@ -10,6 +10,13 @@ Driver podemos manipular impresoras fiscales marca Hasar de una forma super prac
 * Free Software
 * Portable (TO-DO)
 
+### First touch in Windows CLI (Start to use in 20 seconds)
+1. Download **driver.exe** and **command.json** files
+2. Run **driver.exe**
+
+*Note:* you need a fiscal printer model **715** connected or an fiscal emulator runing, for other models, edit **command.json** before run.
+
+### First touch with node.js
 ```javascript
 const HasarFiscalPrinter = require('hasar-fp');
 
