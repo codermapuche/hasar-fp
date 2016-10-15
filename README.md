@@ -3,6 +3,9 @@
 
 Con este driver podemos manipular impresoras fiscales marca Hasar de una forma super practica.
 
+### See in action
+![See in action](https://media.giphy.com/media/3oz8xXmMt3oFKL5ar6/source.gif)
+
 ### Features
 * Promise based
 * Non blocking
