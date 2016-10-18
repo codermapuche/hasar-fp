@@ -13,6 +13,12 @@ Con este driver podemos manipular impresoras fiscales marca Hasar de una forma s
 * Free Software
 * Portable (TO-DO)
 
+### Supported models
+* 615
+* 715
+
+*Note:* All other models can be added easily and is a to do task, if you need another please open an issue or make a pull request.
+
 ### First touch in Windows CLI (Start to use in 20 seconds)
 1. Download **driver.exe** and **command.json** files
 2. Run **driver.exe**
