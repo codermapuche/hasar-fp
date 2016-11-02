@@ -3,6 +3,8 @@
 
 Con este driver podemos manipular impresoras fiscales marca Hasar de una forma super practica.
 
+## See also: [hasar-fp-chrome-extension](https://github.com/codermapuche/hasar-fp-chrome-extension)
+
 ### See in action
 ![See in action](https://media.giphy.com/media/3oz8xXmMt3oFKL5ar6/source.gif)
 
