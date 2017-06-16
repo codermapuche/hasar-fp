@@ -1,0 +1,9 @@
+{
+  "name": "ar.com.craving.hasarfp",
+  "description": "Chrome Native Messaging API Example Host",
+  "path": "hasar-fp.bat",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://pkmanacnbmcbbbalkpgdkjkkioegcpfe/"
+  ]
+}
