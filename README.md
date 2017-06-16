@@ -178,3 +178,33 @@ This file, is a common json config file, that contains for example:
    "discount":10
 }
 ```
+---
+
+## Five minutes install and play from zero
+
+Para comenzar a utilizar esta herramienta en tu sitio web, tienes que seguir los siguientes pasos:
+
+1. En la computadora que tiene la impresora fisicamente conectada (o bien tiene instalado el emulador) debes instalar la extencion del navegador y el driver conector, los cuales puedes descargar desde los siguientes links:
+
+[La extencion del navegador](https://chrome.google.com/webstore/detail/fiscal-printer-cloud-conn/pkmanacnbmcbbbalkpgdkjkkioegcpfe)
+
+[El driver conector](https://github.com/codermapuche/hasar-fp/raw/master/installer/HasarFP.exe)
+
+*Nota:* Este paso lo puede realizar cualquier persona con conocimientos basicos de pc, incluidos los usuarios finales.
+
+2. En el navegador, haz click sobre la extencion y selecciona el modelo de tu impresora entre los disponibles, luego de esto, recarga la pagina que tengas abierta (solo es necesario recargar cuando se cambia de modelo por primera vez).
+
+*Nota:* Probablemente luego de que selecciones el modelo de impresora correcta no volveras a utilizar el icono de la extencion nunca mas.
+
+3. Abre la consola para desarrolladores y escribe:
+```javascript
+var fiscalPrinter = new HasarFiscalPrinter();
+fiscalPrinter.reporteX().then(console.log);
+```
+
+*Nota:* Aca no es necesario indicar el modelo, ya que el mismo fue seleccionado en el punto 2 desde la extencion, esto permite escribir el software de forma totalmente independiente a la impresora que se esta utilizando, si necesitas saber que modelo se selecciono, puedes hacerlo de la siguiente manera:
+
+```javascript
+var fiscalPrinter = new HasarFiscalPrinter();
+console.log(fiscalPrinter.model);
+```
