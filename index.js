@@ -4,7 +4,7 @@ const exec = require('child_process').exec,
 
 function setJSONParams(params) {
 	return new Promise(function(resolve, reject) {
-		fs.writeFile(__dirname + '\\command.json', JSON.stringify(params), function(err) {
+		fs.writeFile('' + __dirname + '\\command.json', JSON.stringify(params), function(err) {
 			if (err) {
 				reject(err);
 			} else {
@@ -17,7 +17,7 @@ function setJSONParams(params) {
 function callToDriver(params) {
 	return setJSONParams(params).then(function() {
 		return new Promise(function(resolve, reject) {
-			exec(__dirname + '\\driver.exe', function (error, stdout, stderr) {
+			exec('"' + __dirname + '\\driver.exe"', function (error, stdout, stderr) {
 				if (error) {
 					reject(error);
 					return;
@@ -84,13 +84,17 @@ HasarFiscalPrinter.prototype.reporteZ = function reporteZ(from, to) {
 		throw new Error('This model can not use method reportZ.');
 	}
 
-	from = from.getFullYear().toString().substr(2,2) +
-						 ('0' + (from.getMonth() + 1)).slice(-2) +
-				     ('0' + from.getDate()).slice(-2);
+	if (from instanceof Date) {
+		from = from.getFullYear().toString().substr(2,2) +
+							 ('0' + (from.getMonth() + 1)).slice(-2) +
+							 ('0' + from.getDate()).slice(-2);
+	}
 
-	to = to.getFullYear().toString().substr(2,2) +
-				 ('0' + (to.getMonth() + 1)).slice(-2) +
-				 ('0' + to.getDate()).slice(-2);
+	if (from instanceof Date) {
+		to = to.getFullYear().toString().substr(2,2) +
+							 ('0' + (to.getMonth() + 1)).slice(-2) +
+							 ('0' + to.getDate()).slice(-2);
+	}
 
 	return callToDriver({
 		model: this.model,
@@ -98,15 +102,15 @@ HasarFiscalPrinter.prototype.reporteZ = function reporteZ(from, to) {
 		from: from,
 		to: to
 	}).then(function(result) {
-		return;
+		return result;
 	});
 }
 
 HasarFiscalPrinter.prototype.ticketFiscal = function ticketFiscal(type, ticket) {
 	if (!HasarFiscalPrinter.canUseIn(this.model, type)) {
 		throw new Error('This model can not print this type of ticket.');
-	}	
-	
+	}
+
 	ticket = {
 		model   : this.model,
 		action  : 'TICKET',
@@ -125,26 +129,26 @@ HasarFiscalPrinter.prototype.ticketFiscal = function ticketFiscal(type, ticket) 
 				price   : item.price    || 1,
 				quantity: item.quantity || 1,
 				iva     : item.iva      || 21,
-				discount: item.discount || 0 
+				discount: item.discount || 0
 			}
-			
+
 			if (item.discount === 0) {
 				delete item.discount;
 			}
-			
+
 			return item;
 		}),
 		discount: ticket.discount || 0
 	}
-	
+
 	if (ticket.discount === 0) {
 		delete ticket.discount;
 	}
-	
+
 	return callToDriver(ticket).then(function(result) {
 		return result.split(EOL).shift();
 	});
-	
+
 }
 
 HasarFiscalPrinter.MODELS = ['615', '715'];
