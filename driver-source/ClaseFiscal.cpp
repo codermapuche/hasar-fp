@@ -85,6 +85,11 @@ int main (int argc, char* argv[]) {
 				continue;
 			}
 			
+			if (jsoneq(commands, &toks[pNro], "320") == 0) {
+				command.printer.model = FIS_MODEL_H320;				
+				continue;
+			}
+			
 			printf("Invalid token: %s\n", toks[pNro]);
 			return 1;
 		}

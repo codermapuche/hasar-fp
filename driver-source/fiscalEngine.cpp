@@ -3,10 +3,10 @@
 #include "fiscalStructures.h"
 #include "P615_100.h"
 #include "P715_100.h"
-#include "P715_201.h"
 #include "P715_302.h"
 #include "P715_403.h"
 #include "P715_504.h"
+#include "P320_100.h"
 
 // ProkaString
 char* rtrim(char* source) {
@@ -54,6 +54,9 @@ void runFiscalCommand(FisCommand command) {
 			break;
 		case FIS_MODEL_H715:		
 			pIF = new ImpresorFiscalP715_100;
+			break;
+		case FIS_MODEL_H320:		
+			pIF = new ImpresorFiscalP320_100;
 			break;
 	}
 	
