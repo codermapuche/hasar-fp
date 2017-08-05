@@ -151,24 +151,24 @@ HasarFiscalPrinter.prototype.ticketFiscal = function ticketFiscal(type, ticket) 
 
 }
 
-HasarFiscalPrinter.MODELS = ['615', '715'];
+HasarFiscalPrinter.MODELS = ['615', '715', '320'];
 
 HasarFiscalPrinter.SUPPORTED_TOOLS = {
 	REPORTE_X: {
 		description: 'Generar reporte X',
-		models: ['615', '715']
+		models: ['615', '715', '320']
 	},
 	REPORTE_Z: {
 		description: 'Generar reporte Z por rango de fechas',
-		models: ['615', '715']
+		models: ['615', '715', '320']
 	},
 	TICKET_FACTURA_A: {
 		description: 'Generar ticket factura A',
-		models: ['615', '715']
+		models: ['615', '715', '320']
 	},
 	TICKET_FACTURA_B: {
 		description: 'Generar ticket factura B',
-		models: ['615', '715']
+		models: ['615', '715', '320']
 	}
 };
 
