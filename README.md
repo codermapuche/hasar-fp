@@ -18,6 +18,9 @@ Con este driver podemos manipular impresoras fiscales marca Hasar de una forma s
 ### Supported models
 * 615
 * 715
+* 320
+* 441
+* ![How to add more with only 10 lines of code](https://github.com/codermapuche/hasar-fp/commit/c4174d73639e4c610ae9cad2cdfc39e4ad77b09d)
 
 *Note:* All other models can be added easily and is a to do task, if you need another please open an issue or make a pull request.
 
