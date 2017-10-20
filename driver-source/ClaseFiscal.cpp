@@ -90,6 +90,15 @@ int main (int argc, char* argv[]) {
 				continue;
 			}
 			
+			/*/
+			 * Agregar una nueva condicion if, en este punto, lo que estamos haciendo es mapear 
+			 *   el valor que se espera en el archivo command.json al codigo interno unico del modelo.
+			/*/
+			if (jsoneq(commands, &toks[pNro], "441") == 0) {
+				command.printer.model = FIS_MODEL_H441;				
+				continue;
+			}
+			
 			printf("Invalid token: %s\n", toks[pNro]);
 			return 1;
 		}

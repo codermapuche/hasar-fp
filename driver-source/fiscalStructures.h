@@ -6,7 +6,11 @@ typedef enum {
 	// 1 Is prefix of Hasar
 	FIS_MODEL_H615 = 1615,
 	FIS_MODEL_H715 = 1715,
-	FIS_MODEL_H320 = 1320
+	FIS_MODEL_H320 = 1320,
+	/*/
+	 * Agregar un nuevo codigo interno unico del modelo.
+	/*/
+	FIS_MODEL_H441 = 1441
 } FIS_MODELS;
 
 typedef enum {

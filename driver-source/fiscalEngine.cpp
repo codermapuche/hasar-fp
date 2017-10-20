@@ -7,6 +7,7 @@
 #include "P715_403.h"
 #include "P715_504.h"
 #include "P320_100.h"
+#include "P441_100.h"
 
 // ProkaString
 char* rtrim(char* source) {
@@ -57,6 +58,14 @@ void runFiscalCommand(FisCommand command) {
 			break;
 		case FIS_MODEL_H320:		
 			pIF = new ImpresorFiscalP320_100;
+			break;
+		/*/
+		 * Mapear el codigo interno unico con el driver propiamente dicho que proporciona el fabricante. 
+		 * Puede que tengas que agregar al inicio de dicho archivo, el #include "PMODEL.h" correspondiente
+		 *   dentro del archivo del modelo en cuestion, vas a encontrar el nombre que los de hasar le dieron al modelo.
+	    /*/
+		case FIS_MODEL_H441:		
+			pIF = new ImpresorFiscalP441_100;
 			break;
 	}
 	
